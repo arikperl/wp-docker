@@ -13,8 +13,6 @@ services:
     depends_on:
       - db
     image: arikperl/wordpress:4.9.9-wc-3.5.3
-    volumes:
-      - D:\Dropbox\projects\Shookit\Docker\test-vol:/mnt
     
     ports:
       - "7777:80"
