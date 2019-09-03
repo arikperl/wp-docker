@@ -15,6 +15,9 @@ services:
     image: arikperl/wordpress:4.9.9-wc-3.5.3
     ports:
       - "7777:80"
+    volumes: 
+       - .:/mnt
+       - ./aaa-test-vol:/mnt/test-vol
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
