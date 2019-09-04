@@ -8,8 +8,9 @@ pipeline {
   
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
-
+	  steps {
         checkout scm
+	  }
     }
 	
     stage('Cloning Git') {
