@@ -3,7 +3,7 @@ pipeline {
     registry = "arikperl/wordpress"
     registryCredential = 'dockerhub'
   }
-  agent { label 'JEN-SLAVE1' }
+  agent { label 'jen-slave1' }
   stages {
   
     stage('Clone repository') {
