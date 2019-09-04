@@ -1,10 +1,15 @@
 pipeline {
   environment {
     registry = "arikperl/wordpress"
-    registryCredential = 'dockerhub'
+    registryCredential = ‘dockerhub’
   }
   agent any
   stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/arikperl/wp-docker.git'
+      }
+    }
     stage('Building image') {
       steps{
         script {
