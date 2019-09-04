@@ -31,8 +31,10 @@ pipeline {
 	stage('pushing image') {
       steps{
 	    withDockerRegistry([credentialsId: registryCredential, url: "https://index.docker.io/v1/"]){
+		  script {
           app.push()
         }
+          
       }
     }
 	
