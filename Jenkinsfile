@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "arikperl/wordpress"
-    registryCredential = ‘dockerhub’
+    registryCredential = 'dockerhub'
   }
   agent { label 'JEN-SLAVE1' }
   stages {
