@@ -1,4 +1,5 @@
 pipeline {
+  def app
   environment {
     registry = "arikperl/wordpress"
     registryCredential = 'dockerhub'
@@ -29,7 +30,7 @@ pipeline {
 	
 	stage('pushing image') {
       steps{
-        script {
+	    withDockerRegistry([credentialsId: registryCredential, url: "https://index.docker.io/v1/"]){
           app.push()
         }
       }
