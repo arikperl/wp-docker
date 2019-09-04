@@ -12,14 +12,14 @@ node {
     }
 	
 	stage('clone github repository'){
-		git https://github.com/arikperl/wp-docker.git
+		git clone https://github.com/arikperl/wp-docker.git
 	}
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("arikperl/nice_test:test-jenkins")
+        app = docker.build registry + ":$BUILD_NUMBER"
     }
 
     stage('Test image') {
