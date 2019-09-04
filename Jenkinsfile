@@ -1,5 +1,4 @@
 pipeline {
-  def app
   environment {
     registry = "arikperl/wordpress"
     registryCredential = 'dockerhub'
