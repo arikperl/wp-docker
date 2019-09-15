@@ -15,9 +15,9 @@ pipeline {
 	
     stage('Cloning WP Git') {
       steps {
-        git ${params.wprepository}
+        git "${params.wprepository}"
       }
     }
 	
     }
-  }
+}
