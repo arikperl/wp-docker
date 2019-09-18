@@ -13,10 +13,12 @@ pipeline {
 	  }
     }
 	
-    stage('Cloning Git') {
+    stage('Cloning WP Shookit baseline repo') {
       steps {
-        git 'https://github.com/arikperl/wp-docker.git'
-      }
+        git branch: 'master',
+            credentialsId: registryCredential',
+            url: 'https://gitlab.com/shookit/wp-baseline.git'
+        }
     }
 	
     stage('Building image') {
