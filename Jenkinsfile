@@ -16,7 +16,7 @@ pipeline {
     stage('Cloning WP Shookit baseline repo') {
       steps {
         git branch: 'master',
-            credentialsId: registryCredential',
+            credentialsId: registryCredential,
             url: 'https://gitlab.com/shookit/wp-baseline.git'
         }
     }
