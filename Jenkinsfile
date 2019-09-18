@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    registry = "arikperl/wordpress"
-    registryCredential = 'dockerhub'
+    registry = "registry.gitlab.com/shookit/wp-baseline"
+    registryCredential = 'GiltLab-Shookit'
   }
   agent { label 'jen-slave1' }
   stages {
@@ -29,7 +29,7 @@ pipeline {
 	
 	stage('pushing image') {
       steps{
-	    withDockerRegistry([credentialsId: registryCredential, url: "https://index.docker.io/v1/"]){
+	    withDockerRegistry([credentialsId: registryCredential, url: "https://registry.gitlab.com"]){
 		  script {
           app.push()
         }
