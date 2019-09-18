@@ -1517,3 +1517,6 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2019-09-18 11:54:33
+CREATE USER 'wpuser'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON wp.* TO 'wpuser'@'%';
+-- GRANT ALL PRIVILEGES ON *.* to 'root'@'localhost' IDENTIFIED BY 'password';
