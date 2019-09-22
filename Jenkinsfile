@@ -34,6 +34,7 @@ pipeline {
 	    withDockerRegistry([credentialsId: registryCredential, url: "https://registry.gitlab.com"]){
 		  script {
           app.push()
+	  app.push("latest")
         }
           
       }
