@@ -1,8 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
 pipeline {
   environment {
     registry = "registry.gitlab.com/shookit/wp-baseline"
