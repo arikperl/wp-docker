@@ -1,3 +1,8 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
 pipeline {
   environment {
     registry = "registry.gitlab.com/shookit/wp-baseline"
@@ -15,9 +20,7 @@ pipeline {
 	
     stage('Cloning WP Shookit baseline repo') {
       steps {
-        git branch: 'master',
-            credentialsId: registryCredential,
-            url: 'https://gitlab.com/shookit/wp-baseline.git'
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'wp-baseline-test']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GiltLab-Shookit', url: 'https://gitlab.com/shookit/wp-baseline.git']]])
         }
     }
 	
@@ -43,3 +46,4 @@ pipeline {
     }
   }
 }
+
