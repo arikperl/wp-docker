@@ -23,7 +23,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          app = docker.build(registry + ":$BUILD_NUMBER","-f ${wpdockerfile}") 
+          app = docker.build(registry + ":$BUILD_NUMBER","-f ${wpdockerfile} .") 
         }
       }
     }
