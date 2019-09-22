@@ -21,8 +21,9 @@ pipeline {
 	
     stage('Building image') {
       steps{
+	def dockerfile = "./wp-baseline-test/Dockerfile"
         script {
-          app = docker.build -f ./wp-baseline-test/Dockerfile registry + ":$BUILD_NUMBER"
+          app = docker.build("-f ${dockerfile}") registry + ":$BUILD_NUMBER"
         }
       }
     }
