@@ -2,6 +2,7 @@ pipeline {
   environment {
     registry = "registry.gitlab.com/shookit/wp-baseline"
     registryCredential = 'GiltLab-Shookit'
+    wpdockerfile = "./wp-baseline-test/Dockerfile"
   }
   agent { label 'jen-slave1' }
   stages {
@@ -20,10 +21,9 @@ pipeline {
     }
 	
     stage('Building image') {
-      def dockerfile = "./wp-baseline-test/Dockerfile"
       steps{
         script {
-          app = docker.build("-f ${dockerfile}") registry + ":$BUILD_NUMBER"
+          app = docker.build("-f ${wpdockerfile}") registry + ":$BUILD_NUMBER"
         }
       }
     }
