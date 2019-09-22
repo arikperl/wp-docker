@@ -22,7 +22,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          app = docker.build registry + ":$BUILD_NUMBER"
+          app = docker.build -f ./wp-baseline-test/Dockerfile registry + ":$BUILD_NUMBER"
         }
       }
     }
