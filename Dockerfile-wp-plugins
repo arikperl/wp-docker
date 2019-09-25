@@ -1,0 +1,3 @@
+FROM arikperl/wordpress:5.2.2-wc-3.5.3-ioncube
+COPY ./wp-baseline-test/. /var/www/html/
+COPY ./wp-checkout-plugin/. /var/www/html/wp-content/plugins/
