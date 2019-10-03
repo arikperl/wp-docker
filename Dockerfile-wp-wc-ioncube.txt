@@ -1,0 +1,17 @@
+FROM arikperl/wordpress:5.2.2
+COPY wp-config.php /var/www/html/
+ENV WOOCOMMERCE_VERSION 3.5.3
+ENV WOOCOMMERCE_UPSTREAM_VERSION 3.5.3
+
+COPY ioncube/ioncube_loader_lin_7.3.so /usr/local/lib/php/extensions/no-debug-non-zts-20180731/
+COPY docker-php-ext-ioncube.ini /usr/local/etc/php/conf.d/
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends unzip wget
+
+RUN wget https://downloads.wordpress.org/plugin/woocommerce.${WOOCOMMERCE_VERSION}.zip -O /tmp/temp.zip \
+    && cd /usr/src/wordpress/wp-content/plugins \
+    && unzip /tmp/temp.zip \
+    && rm /tmp/temp.zip
+	
+
